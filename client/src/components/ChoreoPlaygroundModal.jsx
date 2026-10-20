@@ -87,11 +87,11 @@ export default function ChoreoPlaygroundModal({ isOpen, onClose }) {
   return (
     <div
       onClick={onClose}
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs p-3 sm:p-4 flex items-start sm:items-center justify-center animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs p-3 sm:p-6 flex items-start justify-center animate-in fade-in duration-200"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-5 sm:p-8 text-[#1C1917] shadow-2xl my-4 sm:my-6"
+        className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-5 sm:p-8 text-[#1C1917] shadow-2xl my-4 sm:my-8"
       >
         {/* Close Button */}
         <button
