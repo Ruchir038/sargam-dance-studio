@@ -11,6 +11,18 @@ import ReelsWall from './components/ReelsWall';
 import PricingSection from './components/PricingSection';
 import Footer from './components/Footer';
 
+// Default Studio Data (ensures instant render and offline / Vercel compatibility)
+import {
+  danceStyles as initialStyles,
+  batches as initialBatches,
+  workshops as initialWorkshops,
+  instructors as initialInstructors,
+  reviews as initialReviews,
+  packages as initialPackages,
+  reelsMedia as initialReels,
+  studioPlaylists as initialPlaylists
+} from './data/studioData';
+
 // Modals
 import VibeQuizModal from './components/VibeQuizModal';
 import MoveMirrorModal from './components/MoveMirrorModal';
@@ -24,16 +36,16 @@ import AdminPanelModal from './components/AdminPanelModal';
 import EasterEggModal from './components/EasterEggModal';
 
 export default function App() {
-  // Data States
-  const [styles, setStyles] = useState([]);
-  const [batches, setBatches] = useState([]);
-  const [workshops, setWorkshops] = useState([]);
-  const [instructors, setInstructors] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [packages, setPackages] = useState([]);
-  const [reels, setReels] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Data States initialized with rich defaults
+  const [styles, setStyles] = useState(initialStyles);
+  const [batches, setBatches] = useState(initialBatches);
+  const [workshops, setWorkshops] = useState(initialWorkshops);
+  const [instructors, setInstructors] = useState(initialInstructors);
+  const [reviews, setReviews] = useState(initialReviews);
+  const [packages, setPackages] = useState(initialPackages);
+  const [reels, setReels] = useState(initialReels);
+  const [playlists, setPlaylists] = useState(initialPlaylists);
+  const [loading, setLoading] = useState(false);
 
   // Modal States
   const [isQuizOpen, setIsQuizOpen] = useState(false);
