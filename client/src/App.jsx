@@ -109,7 +109,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0C0A14] text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#FAF9F6] text-[#1C1917] flex flex-col font-body selection:bg-[#9F1239] selection:text-white">
       {/* Navigation */}
       <Navbar
         onOpenTrial={() => handleOpenTrial()}
