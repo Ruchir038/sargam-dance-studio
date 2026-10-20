@@ -85,12 +85,19 @@ export default function ChoreoPlaygroundModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-6 sm:p-8 text-[#1C1917] shadow-xl my-6">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs p-3 sm:p-4 flex items-start sm:items-center justify-center animate-in fade-in duration-200"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-5 sm:p-8 text-[#1C1917] shadow-2xl my-4 sm:my-6"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] text-stone-500 hover:text-[#1C1917] transition-colors z-20 cursor-pointer border border-[#E7E5E0]"
+          aria-label="Close modal"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 p-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] text-stone-600 hover:text-[#1C1917] transition-colors z-20 cursor-pointer border border-[#E7E5E0] shadow-xs active:scale-90"
         >
           <X className="w-5 h-5" />
         </button>
@@ -202,12 +209,20 @@ export default function ChoreoPlaygroundModal({ isOpen, onClose }) {
           <span className="text-xs text-stone-500">
             {savedSuccess ? '✓ Routine saved to studio cloud' : 'Build an 8-count routine preview.'}
           </span>
-          <button
-            onClick={handleSaveRoutine}
-            className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer"
-          >
-            <Save className="w-3.5 h-3.5" /> Save Routine
-          </button>
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <button
+              onClick={onClose}
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-full bg-[#FAF9F6] border border-[#E7E5E0] hover:bg-[#F5F3EF] text-stone-700 text-xs font-medium cursor-pointer"
+            >
+              Close
+            </button>
+            <button
+              onClick={handleSaveRoutine}
+              className="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <Save className="w-3.5 h-3.5" /> Save Routine
+            </button>
+          </div>
         </div>
       </div>
     </div>
