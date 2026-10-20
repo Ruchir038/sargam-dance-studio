@@ -1,0 +1,71 @@
+{
+  "studio": {
+    "name": "Sargam Dance Studio",
+    "nameDevanagari": "सरगम डांस स्टूडियो",
+    "tagline": "Move. Vibe. Repeat.",
+    "subTagline": "Where every beat finds its dancer in the Pink City",
+    "heroHeadline": "SARGAM. Find your rhythm.",
+    "foundedYear": 2015,
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "country": "India",
+    "pincode": "302017",
+    "address": "Plot 42, Near Gaurav Tower (GT), Malviya Nagar, Jaipur, Rajasthan 302017",
+    "landmark": "2 mins from GT Central & WTP Jaipur",
+    "branches": [
+      {
+        "name": "Malviya Nagar (Main Studio)",
+        "address": "Plot 42, Near Gaurav Tower, Malviya Nagar",
+        "phone": "+91 98290 41234"
+      },
+      {
+        "name": "Vaishali Nagar Studio",
+        "address": "2nd Floor, Amrapali Circle, Vaishali Nagar",
+        "phone": "+91 98290 41235"
+      },
+      {
+        "name": "Tonk Phatak Studio",
+        "address": "Above Royal Bakers, Tonk Phatak Main Road",
+        "phone": "+91 98290 41236"
+      }
+    ],
+    "phone": "+91 98290 41234",
+    "whatsapp": "+91 98290 41234",
+    "email": "groove@sargamdancestudio.com",
+    "googleRating": 4.9,
+    "reviewCount": 542,
+    "instagram": "https://instagram.com/sargamdancejaipur",
+    "youtube": "https://youtube.com/@sargamdancestudiojaipur",
+    "mapUrl": "https://maps.google.com/?q=Sargam+Dance+Studio+Jaipur",
+    "workingHours": {
+      "weekdays": "6:30 AM – 9:30 PM",
+      "saturday": "7:00 AM – 9:00 PM",
+      "sunday": "8:00 AM – 2:00 PM (Special Workshops)"
+    },
+    "defaultBPM": 105
+  },
+  "brand": {
+    "colors": {
+      "bgDark": "#0C0A14",
+      "surface": "#14121F",
+      "surfaceElevated": "#1C192B",
+      "border": "#28243D",
+      "accentRose": "#E11D48",
+      "accentAmber": "#F59E0B",
+      "accentIndigo": "#6366F1",
+      "accentTeal": "#14B8A6",
+      "paper": "#F8FAFC"
+    },
+    "swaras": [
+      { "note": "Sa", "key": "S", "freq": 261.63, "hindi": "सा", "color": "#E11D48" },
+      { "note": "Re", "key": "R", "freq": 293.66, "hindi": "रे", "color": "#EA580C" },
+      { "note": "Ga", "key": "G", "freq": 329.63, "hindi": "ग", "color": "#F59E0B" },
+      { "note": "Ma", "key": "M", "freq": 349.23, "hindi": "म", "color": "#14B8A6" },
+      { "note": "Pa", "key": "P", "freq": 392.00, "hindi": "प", "color": "#6366F1" },
+      { "note": "Dha", "key": "D", "freq": 440.00, "hindi": "ध", "color": "#3B82F6" },
+      { "note": "Ni", "key": "N", "freq": 493.88, "hindi": "नि", "color": "#A855F7" }
+    ],
+    "easterEggCombo": ["S", "R", "G", "M"],
+    "easterEggDiscount": "SARGAMBEAT25"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "sargam-dance-studio",
+  "version": "1.0.0",
+  "description": "Sargam Dance Studio Jaipur - Move. Vibe. Repeat. Official Web App",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "dev": "node run-dev.js",
+    "build": "npm --prefix client run build"
+  },
+  "keywords": [
+    "sargam-dance-studio",
+    "jaipur",
+    "dance",
+    "bollywood",
+    "hip-hop",
+    "kathak"
+  ],
+  "author": "Sargam Dance Studio Team",
+  "license": "ISC"
+}
