@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Users, Flame } from 'lucide-react';
+import { Clock, MapPin, Users } from 'lucide-react';
 
 export default function ScheduleSection({ batches = [], onSelectBatchSpot }) {
   const [selectedBranch, setSelectedBranch] = useState('All');
@@ -12,30 +12,26 @@ export default function ScheduleSection({ batches = [], onSelectBatchSpot }) {
   });
 
   return (
-    <section id="schedule" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="schedule" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Live Next-Up Strip */}
-      <div className="mb-12 p-4 sm:p-5 rounded-2xl bg-[#13111C] border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-rose-600/20 text-rose-400 border border-rose-500/20">
-            <Flame className="w-4 h-4 fill-rose-400" />
-          </div>
-          <div>
-            <span className="text-[10px] font-mono tracking-wider text-rose-400 uppercase block font-semibold">
-              NEXT UP IN JAIPUR STUDIO
-            </span>
-            <h4 className="font-display font-bold text-base sm:text-lg text-white">
-              Bollywood Hookstep Hype (Malviya Nagar Branch)
-            </h4>
-          </div>
+      <div className="mb-14 p-5 sm:p-6 rounded-2xl bg-white border border-[#E7E5E0] shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span className="text-[10px] uppercase tracking-widest text-[#9F1239] font-bold block mb-1">
+            Next Session Starting Soon
+          </span>
+          <h4 className="font-display font-medium text-lg text-[#1C1917]">
+            Bollywood Hookstep Hype (Malviya Nagar Branch)
+          </h4>
+          <p className="text-xs text-[#78716C] mt-0.5">Plot 42, Near Gaurav Tower • Today 6:30 PM</p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="px-3 py-1.5 rounded-lg bg-black/40 border border-white/10 text-xs font-mono text-amber-300 font-semibold">
-            Starts in 00:42:18
+          <div className="px-3 py-1.5 rounded-md bg-[#FAF9F6] border border-[#E7E5E0] text-xs font-mono text-[#57534E]">
+            Starts in 42 mins
           </div>
           <button
             onClick={() => onSelectBatchSpot(batches[0])}
-            className="px-3.5 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs transition-colors cursor-pointer"
+            className="px-4 py-2 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs transition-colors cursor-pointer"
           >
             Claim 1 of 3 Spots
           </button>
@@ -43,16 +39,16 @@ export default function ScheduleSection({ batches = [], onSelectBatchSpot }) {
       </div>
 
       {/* Main Schedule Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
-          <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-            TIMETABLE & FORMATION MAP
+          <span className="text-xs uppercase tracking-widest text-[#78716C] font-semibold block mb-2">
+            Timetable & Formations
           </span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
-            Batches & Spot Wars
+          <h2 className="text-3xl sm:text-4xl font-display font-medium text-[#1C1917] tracking-tight">
+            Batches & Spot Selection
           </h2>
-          <p className="text-sm text-slate-400 mt-1">
-            Reserve your exact spot in the formation: front spotlight, center stage, or comfort groove.
+          <p className="text-sm text-[#78716C] mt-2">
+            Select your batch and choose your exact position in the studio formation.
           </p>
         </div>
 
@@ -62,10 +58,10 @@ export default function ScheduleSection({ batches = [], onSelectBatchSpot }) {
             <button
               key={b}
               onClick={() => setSelectedBranch(b)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
                 selectedBranch === b
-                  ? 'bg-rose-600 text-white font-semibold shadow-sm'
-                  : 'bg-white/5 border border-white/10 text-slate-400 hover:text-white'
+                  ? 'bg-[#1C1917] text-white shadow-xs'
+                  : 'bg-white border border-[#E7E5E0] text-[#78716C] hover:text-[#1C1917]'
               }`}
             >
               {b === 'All' ? 'All Studios' : b.split(' ')[0]}
@@ -81,58 +77,58 @@ export default function ScheduleSection({ batches = [], onSelectBatchSpot }) {
           return (
             <div
               key={batch.id}
-              className="p-5 rounded-2xl bg-[#13111C] border border-white/10 hover:border-white/20 transition-all duration-200 flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white border border-[#E7E5E0] hover:border-[#D6D3CD] transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-sm"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300 font-medium">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-[#F5F3EF] text-[#57534E] font-medium">
                     {batch.level}
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-rose-400 font-medium">
+                  <span className="text-[11px] text-[#9F1239] font-medium">
                     {batch.status}
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-lg text-white">
+                <h3 className="font-display font-medium text-lg text-[#1C1917]">
                   {batch.title}
                 </h3>
 
-                <div className="mt-3.5 space-y-2 text-xs text-slate-400">
+                <div className="mt-4 space-y-2 text-xs text-[#78716C]">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <Clock className="w-3.5 h-3.5 text-[#A8A29E]" />
                     <span>{batch.days.join(', ')} • {batch.time}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                    <MapPin className="w-3.5 h-3.5 text-[#A8A29E]" />
                     <span>{batch.branch}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="w-3.5 h-3.5 text-slate-400" />
-                    <span>Capacity: {batch.enrolledCount}/{batch.capacity} ({spotsLeft} open)</span>
+                    <Users className="w-3.5 h-3.5 text-[#A8A29E]" />
+                    <span>{batch.enrolledCount}/{batch.capacity} enrolled ({spotsLeft} open)</span>
                   </div>
                 </div>
 
                 {/* Capacity Progress Bar */}
-                <div className="mt-4 w-full h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
+                <div className="mt-5 w-full h-1 bg-[#F5F3EF] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-rose-500"
+                    className="h-full bg-[#1C1917]"
                     style={{ width: `${(batch.enrolledCount / batch.capacity) * 100}%` }}
                   />
                 </div>
               </div>
 
               {/* Price & Action */}
-              <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-[#F0EEE9] flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase block">MONTHLY</span>
-                  <span className="font-display font-bold text-lg text-white">₹{batch.price}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-[#A8A29E] block font-medium">Monthly</span>
+                  <span className="font-display font-semibold text-lg text-[#1C1917]">₹{batch.price}</span>
                 </div>
 
                 <button
                   onClick={() => onSelectBatchSpot(batch)}
-                  className="px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5"
+                  className="px-4 py-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] border border-[#E7E5E0] text-[#1C1917] text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5"
                 >
-                  <Users className="w-3.5 h-3.5 text-rose-400" />
+                  <Users className="w-3.5 h-3.5 text-[#78716C]" />
                   <span>Choose Spot</span>
                 </button>
               </div>

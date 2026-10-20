@@ -5,34 +5,28 @@ import { InstagramIcon, YoutubeIcon } from './Icons';
 
 export default function Footer({ onOpenAdmin, onOpenParentMode, onOpenTrial }) {
   return (
-    <footer className="bg-[#0A0912] text-slate-300 border-t border-white/5 overflow-hidden">
+    <footer className="bg-[#FAF9F6] text-[#1C1917] border-t border-[#E7E5E0] overflow-hidden">
       {/* Interactive Sargam Swaras Synthesizer */}
       <SargamKeyboard />
 
-      {/* Editorial Typographic Banner */}
-      <div className="py-8 border-y border-white/5 text-center overflow-hidden bg-[#0C0A14]">
-        <h2 className="font-display font-extrabold text-3xl sm:text-6xl tracking-tight text-white/20 select-none uppercase">
-          Sargam Dance Studio • Jaipur
-        </h2>
-      </div>
-
       {/* Main Studio Details Columns */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Col 1: Brand & Tagline */}
-          <div className="space-y-3.5">
-            <div className="flex items-center gap-2.5">
-              <span className="text-xl">💃</span>
-              <span className="font-display font-bold text-xl text-white">SARGAM</span>
-              <span className="font-hindi text-xs px-1.5 py-0.5 rounded bg-white/5 text-slate-300 border border-white/10">
+          <div className="space-y-4">
+            <div className="flex items-baseline gap-2">
+              <span className="font-display font-semibold text-2xl tracking-tight text-[#1C1917]">
+                Sargam
+              </span>
+              <span className="font-hindi text-xs text-[#78716C] font-normal">
                 सरगम
               </span>
             </div>
-            <p className="font-fun text-base text-amber-300">
-              "Move. Vibe. Repeat. Where every beat finds its dancer."
+            <p className="font-display italic text-base text-[#9F1239]">
+              "Where every beat finds its dancer."
             </p>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Jaipur's dance academy for hobby training, physical fitness, street cyphers, and royal wedding sangeet choreography.
+            <p className="text-xs text-[#78716C] leading-relaxed">
+              Jaipur's dance academy dedicated to technical training, fitness routines, underground battles, and wedding sangeet choreography.
             </p>
 
             <div className="flex gap-2.5 pt-1">
@@ -40,7 +34,7 @@ export default function Footer({ onOpenAdmin, onOpenParentMode, onOpenTrial }) {
                 href="https://instagram.com/sargamdancejaipur"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-rose-400 hover:border-white/20 transition-colors"
+                className="p-2 rounded-lg bg-white border border-[#E7E5E0] text-[#57534E] hover:text-[#1C1917] hover:border-[#D6D3CD] transition-colors shadow-xs"
                 title="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -49,7 +43,7 @@ export default function Footer({ onOpenAdmin, onOpenParentMode, onOpenTrial }) {
                 href="https://youtube.com/@sargamdancestudiojaipur"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-red-400 hover:border-white/20 transition-colors"
+                className="p-2 rounded-lg bg-white border border-[#E7E5E0] text-[#57534E] hover:text-[#1C1917] hover:border-[#D6D3CD] transition-colors shadow-xs"
                 title="YouTube"
               >
                 <YoutubeIcon className="w-4 h-4" />
@@ -58,7 +52,7 @@ export default function Footer({ onOpenAdmin, onOpenParentMode, onOpenTrial }) {
                 href="https://wa.me/919829041234"
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-emerald-400 hover:border-white/20 transition-colors"
+                className="p-2 rounded-lg bg-white border border-[#E7E5E0] text-[#57534E] hover:text-[#1C1917] hover:border-[#D6D3CD] transition-colors shadow-xs"
                 title="WhatsApp"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -67,102 +61,102 @@ export default function Footer({ onOpenAdmin, onOpenParentMode, onOpenTrial }) {
           </div>
 
           {/* Col 2: Jaipur Branches */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xs tracking-wider text-white uppercase">
-              Jaipur Studio Branches
+          <div className="space-y-3.5">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
+              Studio Branches
             </h4>
-            <div className="space-y-2.5 text-xs text-slate-400">
-              <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                <strong className="text-slate-200 block font-medium">📍 Malviya Nagar (Main Studio)</strong>
-                <p className="mt-0.5">Plot 42, Near Gaurav Tower (GT Central), Malviya Nagar, 302017</p>
+            <div className="space-y-3 text-xs text-[#78716C]">
+              <div className="p-3.5 rounded-xl bg-white border border-[#E7E5E0] shadow-xs">
+                <strong className="text-[#1C1917] block font-medium">📍 Malviya Nagar (Main Studio)</strong>
+                <p className="mt-1">Plot 42, Near Gaurav Tower (GT Central), 302017</p>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                <strong className="text-slate-200 block font-medium">📍 Vaishali Nagar Studio</strong>
-                <p className="mt-0.5">2nd Floor, Amrapali Circle, Vaishali Nagar, Jaipur</p>
+              <div className="p-3.5 rounded-xl bg-white border border-[#E7E5E0] shadow-xs">
+                <strong className="text-[#1C1917] block font-medium">📍 Vaishali Nagar Studio</strong>
+                <p className="mt-1">2nd Floor, Amrapali Circle, Vaishali Nagar</p>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                <strong className="text-slate-200 block font-medium">📍 Tonk Phatak Studio</strong>
-                <p className="mt-0.5">Above Royal Bakers, Tonk Phatak Main Road</p>
+              <div className="p-3.5 rounded-xl bg-white border border-[#E7E5E0] shadow-xs">
+                <strong className="text-[#1C1917] block font-medium">📍 Tonk Phatak Studio</strong>
+                <p className="mt-1">Above Royal Bakers, Tonk Phatak Main Road</p>
               </div>
             </div>
           </div>
 
           {/* Col 3: Quick Links */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xs tracking-wider text-white uppercase">
-              Quick Portals
+          <div className="space-y-3.5">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
+              Quick Links
             </h4>
-            <ul className="space-y-2 text-xs text-slate-400">
+            <ul className="space-y-2.5 text-xs text-[#78716C]">
               <li>
-                <a href="#styles" className="hover:text-rose-400 transition-colors">Bollywood & Commercial Choreo</a>
+                <a href="#styles" className="hover:text-[#1C1917] transition-colors">Bollywood Commercial</a>
               </li>
               <li>
-                <a href="#styles" className="hover:text-rose-400 transition-colors">Desi Hip-Hop & Street Cypher</a>
+                <a href="#styles" className="hover:text-[#1C1917] transition-colors">Desi Hip-Hop & Street</a>
               </li>
               <li>
-                <a href="#styles" className="hover:text-rose-400 transition-colors">Kathak & Semi-Classical</a>
+                <a href="#styles" className="hover:text-[#1C1917] transition-colors">Kathak & Semi-Classical</a>
               </li>
               <li>
-                <a href="#schedule" className="hover:text-rose-400 transition-colors">Timetable & Formation Spots</a>
+                <a href="#schedule" className="hover:text-[#1C1917] transition-colors">Timetable & Formations</a>
               </li>
               <li>
-                <a href="#workshops" className="hover:text-rose-400 transition-colors">Workshops & Events</a>
+                <a href="#workshops" className="hover:text-[#1C1917] transition-colors">Workshops & Masterclasses</a>
               </li>
               <li>
                 <button
                   onClick={onOpenParentMode}
-                  className="hover:text-amber-300 transition-colors flex items-center gap-1.5 cursor-pointer text-left"
+                  className="hover:text-[#1C1917] transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                 >
-                  <Heart className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Parent Mode (Kids Batches)</span>
+                  <Heart className="w-3.5 h-3.5 text-[#9F1239]" />
+                  <span>Parent Portal (Kids)</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={onOpenAdmin}
-                  className="hover:text-slate-200 transition-colors flex items-center gap-1.5 cursor-pointer text-left"
+                  className="hover:text-[#1C1917] transition-colors flex items-center gap-1.5 cursor-pointer text-left"
                 >
-                  <Settings className="w-3.5 h-3.5 text-slate-400" />
-                  <span>Studio Admin Panel</span>
+                  <Settings className="w-3.5 h-3.5 text-[#78716C]" />
+                  <span>Admin Panel</span>
                 </button>
               </li>
             </ul>
           </div>
 
           {/* Col 4: Timings & Contact */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xs tracking-wider text-white uppercase">
+          <div className="space-y-3.5">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C1917]">
               Timings & Contact
             </h4>
-            <div className="space-y-2 text-xs text-slate-400">
+            <div className="space-y-2 text-xs text-[#78716C]">
               <p>
-                <strong className="text-slate-200">Mon – Sat:</strong> 6:30 AM – 9:30 PM
+                <strong className="text-[#1C1917]">Monday – Saturday:</strong><br />6:30 AM – 9:30 PM
               </p>
               <p>
-                <strong className="text-slate-200">Sunday:</strong> 8:00 AM – 2:00 PM (Masterclasses)
+                <strong className="text-[#1C1917]">Sunday:</strong><br />8:00 AM – 2:00 PM (Masterclasses)
               </p>
               <div className="pt-2">
                 <a
                   href="tel:+919829041234"
-                  className="inline-flex items-center gap-2 text-sm text-white font-medium hover:text-rose-400 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm text-[#1C1917] font-semibold hover:text-[#9F1239] transition-colors"
                 >
-                  <Phone className="w-3.5 h-3.5 text-rose-500" />
+                  <Phone className="w-4 h-4 text-[#9F1239]" />
                   <span>+91 98290 41234</span>
                 </a>
               </div>
-              <p className="text-[11px] text-slate-500">
-                Helpline for batch enquiries, trial bookings, and wedding sangeet choreography.
+              <p className="text-[11px] text-[#A8A29E] pt-1">
+                Studio helpline for trials, timings, and wedding sangeet choreography inquiries.
               </p>
             </div>
           </div>
         </div>
 
         {/* Bottom Strip */}
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div className="mt-14 pt-8 border-t border-[#E7E5E0] flex flex-col sm:flex-row items-center justify-between text-xs text-[#78716C] gap-4">
           <p>© {new Date().getFullYear()} Sargam Dance Studio (Jaipur, Rajasthan). All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-slate-400">Jaipur, RJ</span>
-            <a href="https://maps.google.com/?q=Sargam+Dance+Studio+Jaipur" target="_blank" rel="noreferrer" className="hover:text-slate-300">
+            <span>Jaipur, RJ</span>
+            <a href="https://maps.google.com/?q=Sargam+Dance+Studio+Jaipur" target="_blank" rel="noreferrer" className="hover:text-[#1C1917]">
               Google Maps Location
             </a>
           </div>

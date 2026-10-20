@@ -4,63 +4,61 @@ import { InstagramIcon } from './Icons';
 
 export default function InstructorsSection({ instructors = [] }) {
   return (
-    <section id="instructors" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="instructors" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-12">
-        <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-          FACULTY & CHOREOGRAPHERS
+      <div className="text-center mb-14">
+        <span className="text-xs uppercase tracking-widest text-[#78716C] font-semibold block mb-2">
+          Faculty & Mentors
         </span>
-        <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
-          Meet The Instructors
+        <h2 className="text-3xl sm:text-4xl font-display font-medium text-[#1C1917] tracking-tight">
+          Meet The Choreographers
         </h2>
-        <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
-          Passionate mentors with stage experience, competition titles, and patient teaching.
+        <p className="text-sm text-[#78716C] mt-2 max-w-md mx-auto">
+          Passionate instructors with professional battle titles, national stage experience, and patient mentorship.
         </p>
       </div>
 
       {/* Instructors Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {instructors.map((inst) => (
           <div
             key={inst.id}
-            className="group rounded-2xl bg-[#13111C] border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+            className="group rounded-2xl bg-white border border-[#E7E5E0] hover:border-[#D6D3CD] transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-sm"
           >
             {/* Image */}
-            <div className="relative aspect-square overflow-hidden bg-slate-900">
+            <div className="relative aspect-square overflow-hidden bg-[#F5F3EF]">
               <img
                 src={inst.photo}
                 alt={inst.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#13111C] via-[#13111C]/30 to-transparent" />
-
-              <span className="absolute top-3.5 right-3.5 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10 text-xs font-mono text-amber-300 font-semibold flex items-center gap-1">
-                <Star className="w-3 h-3 fill-amber-300" /> {inst.rating}
+              <span className="absolute top-3.5 right-3.5 px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-sm border border-stone-200 text-xs font-mono text-[#1C1917] font-semibold flex items-center gap-1 shadow-xs">
+                <Star className="w-3 h-3 fill-amber-500 text-amber-500" /> {inst.rating}
               </span>
 
-              <div className="absolute bottom-3.5 left-4 right-4">
-                <span className="text-[10px] font-mono text-rose-400 uppercase tracking-wider block font-semibold">
+              <div className="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-sm p-3 rounded-xl border border-stone-200">
+                <span className="text-[10px] text-[#9F1239] uppercase tracking-wider block font-semibold">
                   {inst.experience}
                 </span>
-                <h3 className="font-display font-bold text-lg text-white">
+                <h3 className="font-display font-medium text-lg text-[#1C1917]">
                   {inst.name}
                 </h3>
-                <p className="text-xs text-slate-300 font-medium">{inst.role}</p>
+                <p className="text-xs text-[#78716C]">{inst.role}</p>
               </div>
             </div>
 
             {/* Bio & Signature Move */}
-            <div className="p-5 space-y-4">
-              <p className="text-xs text-slate-400 leading-relaxed">
+            <div className="p-6 space-y-4">
+              <p className="text-xs text-[#78716C] leading-relaxed">
                 {inst.bio}
               </p>
 
-              {/* Signature move highlight */}
-              <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block font-medium">
-                  SIGNATURE STYLE / MOVE:
+              {/* Signature move */}
+              <div className="p-3 rounded-xl bg-[#F5F3EF] border border-[#E7E5E0]">
+                <span className="text-[10px] uppercase tracking-wider text-[#78716C] block font-semibold">
+                  Signature Specialty:
                 </span>
-                <span className="text-xs font-semibold text-white mt-0.5 block">
+                <span className="text-xs font-medium text-[#1C1917] mt-0.5 block">
                   {inst.signatureMove}
                 </span>
               </div>
@@ -70,7 +68,7 @@ export default function InstructorsSection({ instructors = [] }) {
                 {inst.styles.map((s, i) => (
                   <span
                     key={i}
-                    className="text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/5 text-slate-300"
+                    className="text-[11px] px-2.5 py-0.5 rounded-md bg-[#FAF9F6] border border-[#E7E5E0] text-[#57534E]"
                   >
                     {s}
                   </span>
@@ -78,11 +76,11 @@ export default function InstructorsSection({ instructors = [] }) {
               </div>
 
               {/* Social Link */}
-              <div className="pt-2 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
-                <span className="flex items-center gap-1.5 text-slate-300 font-mono text-[11px]">
-                  <InstagramIcon className="w-3.5 h-3.5 text-rose-400" /> {inst.instagram}
+              <div className="pt-3 border-t border-[#F0EEE9] flex items-center justify-between text-xs text-[#78716C]">
+                <span className="flex items-center gap-1.5 font-mono text-[11px] text-[#44403C]">
+                  <InstagramIcon className="w-3.5 h-3.5 text-[#9F1239]" /> {inst.instagram}
                 </span>
-                <span className="text-[10px] text-slate-500">Jaipur Faculty</span>
+                <span className="text-[10px] text-[#A8A29E]">Jaipur Studio Faculty</span>
               </div>
             </div>
           </div>

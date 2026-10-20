@@ -3,60 +3,62 @@ import { Check } from 'lucide-react';
 
 export default function PricingSection({ packages = [], onSelectPackage }) {
   return (
-    <section id="pricing" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="pricing" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-12">
-        <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-          MEMBERSHIPS & PACKAGES
+      <div className="text-center mb-14">
+        <span className="text-xs uppercase tracking-widest text-[#78716C] font-semibold block mb-2">
+          Memberships & Passes
         </span>
-        <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
-          Transparent Pricing
+        <h2 className="text-3xl sm:text-4xl font-display font-medium text-[#1C1917] tracking-tight">
+          Simple, Transparent Pricing
         </h2>
-        <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
-          No hidden admission costs. Flexible plans from single drop-ins to monthly passes.
+        <p className="text-sm text-[#78716C] mt-2 max-w-md mx-auto">
+          No hidden admission costs or lock-in contracts. Choose the plan that fits your rhythm.
         </p>
       </div>
 
       {/* Pricing Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5">
         {packages.map((pkg) => (
           <div
             key={pkg.id}
-            className={`p-5 rounded-2xl border flex flex-col justify-between transition-all duration-200 ${
+            className={`p-6 rounded-2xl border flex flex-col justify-between transition-all duration-200 ${
               pkg.isPopular
-                ? 'bg-[#181526] border-rose-500 shadow-xl shadow-rose-950/30'
-                : 'bg-[#13111C] border-white/10 hover:border-white/20'
+                ? 'bg-[#1C1917] text-white border-[#1C1917] shadow-md'
+                : 'bg-white text-[#1C1917] border-[#E7E5E0] hover:border-[#D6D3CD] shadow-xs'
             }`}
           >
             <div>
               {/* Badge */}
               <span
-                className={`text-[10px] font-mono px-2 py-0.5 rounded font-medium block w-fit mb-3 ${
+                className={`text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full block w-fit mb-4 ${
                   pkg.isPopular
                     ? 'bg-rose-500 text-white'
-                    : 'bg-white/5 text-slate-300 border border-white/10'
+                    : 'bg-[#F5F3EF] text-[#57534E]'
                 }`}
               >
                 {pkg.badge}
               </span>
 
-              <h3 className="font-display font-bold text-base text-white mb-1.5">
+              <h3 className={`font-display font-medium text-lg mb-2 ${pkg.isPopular ? 'text-white' : 'text-[#1C1917]'}`}>
                 {pkg.name}
               </h3>
 
-              <div className="mb-4">
-                <span className="font-display font-bold text-2xl text-white">
+              <div className="mb-5">
+                <span className="font-display font-semibold text-3xl">
                   ₹{pkg.price.toLocaleString('en-IN')}
                 </span>
-                <span className="text-[10px] text-slate-400 block font-mono mt-0.5">{pkg.validity}</span>
+                <span className={`text-[11px] block mt-1 ${pkg.isPopular ? 'text-stone-400' : 'text-[#78716C]'}`}>
+                  {pkg.validity}
+                </span>
               </div>
 
               {/* Features List */}
-              <ul className="space-y-2 mb-6 border-t border-white/5 pt-3.5">
+              <ul className={`space-y-2.5 mb-8 border-t pt-4 ${pkg.isPopular ? 'border-stone-800' : 'border-[#F0EEE9]'}`}>
                 {pkg.features.map((feat, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                    <Check className="w-3.5 h-3.5 text-rose-400 shrink-0 mt-0.5" />
-                    <span>{feat}</span>
+                  <li key={i} className="flex items-start gap-2.5 text-xs">
+                    <Check className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${pkg.isPopular ? 'text-rose-400' : 'text-[#9F1239]'}`} />
+                    <span className={pkg.isPopular ? 'text-stone-300' : 'text-[#57534E]'}>{feat}</span>
                   </li>
                 ))}
               </ul>
@@ -65,10 +67,10 @@ export default function PricingSection({ packages = [], onSelectPackage }) {
             {/* Action CTA */}
             <button
               onClick={() => onSelectPackage(pkg)}
-              className={`w-full py-2.5 rounded-xl font-medium text-xs tracking-wide transition-all cursor-pointer ${
+              className={`w-full py-2.5 rounded-full font-medium text-xs tracking-wide transition-all cursor-pointer ${
                 pkg.isPopular
-                  ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-sm'
-                  : 'bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200'
+                  ? 'bg-white text-[#1C1917] hover:bg-stone-200'
+                  : 'bg-[#1C1917] text-white hover:bg-[#292524]'
               }`}
             >
               {pkg.cta}

@@ -99,29 +99,29 @@ export default function MoveMirrorModal({ isOpen, onClose, onClaimTrial }) {
   const currentMove = DANCE_PROMPTS[currentPromptIdx];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-xl rounded-2xl bg-[#14121F] border border-white/10 p-5 sm:p-6 text-white shadow-2xl my-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+      <div className="relative w-full max-w-xl rounded-2xl bg-white border border-[#E7E5E0] p-6 sm:p-7 text-[#1C1917] shadow-xl my-6">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors z-20 cursor-pointer"
+          className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] text-stone-500 hover:text-[#1C1917] transition-colors z-20 cursor-pointer border border-[#E7E5E0]"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Header */}
-        <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-          STUDIO MIRROR MINI-GAME
+        <span className="text-[11px] font-mono text-[#9F1239] tracking-wider uppercase font-semibold block mb-1">
+          STUDIO MIRROR CHALLENGE
         </span>
-        <h3 className="font-display font-bold text-xl sm:text-2xl text-white mb-1">
+        <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#1C1917] mb-1">
           30-Second Movement Challenge
         </h3>
-        <p className="text-xs text-slate-400 mb-4">
+        <p className="text-xs text-stone-500 mb-5">
           Match the choreography cues in real-time. 100% private in your browser.
         </p>
 
         {/* Video / Mirror Canvas View */}
-        <div className="relative w-full aspect-video rounded-xl bg-black border border-white/10 overflow-hidden flex items-center justify-center">
+        <div className="relative w-full aspect-video rounded-xl bg-stone-900 border border-[#E7E5E0] overflow-hidden flex items-center justify-center">
           <video
             ref={videoRef}
             playsInline
@@ -131,15 +131,15 @@ export default function MoveMirrorModal({ isOpen, onClose, onClaimTrial }) {
 
           {!cameraActive && (
             <div className="text-center p-6 space-y-3">
-              <div className="w-12 h-12 mx-auto rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl">
+              <div className="w-12 h-12 mx-auto rounded-xl bg-white/10 border border-white/20 flex items-center justify-center text-2xl">
                 🪞
               </div>
-              <p className="text-xs text-slate-400 max-w-xs">
+              <p className="text-xs text-stone-300 max-w-xs">
                 Enable webcam to see yourself in the studio mirror, or start the prompt challenge directly.
               </p>
               <button
                 onClick={startCamera}
-                className="px-3.5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-medium text-white transition-colors cursor-pointer"
+                className="px-4 py-2 rounded-full bg-white text-xs font-medium text-stone-900 hover:bg-stone-100 transition-colors cursor-pointer"
               >
                 Enable Camera
               </button>
@@ -149,34 +149,34 @@ export default function MoveMirrorModal({ isOpen, onClose, onClaimTrial }) {
           {isPlaying && (
             <div className="absolute inset-0 pointer-events-none p-4 flex flex-col justify-between bg-gradient-to-t from-black/80 via-transparent to-black/60">
               <div className="flex items-center justify-between">
-                <div className="px-2.5 py-1 rounded-md bg-rose-600 text-white text-[11px] font-mono font-medium">
+                <div className="px-2.5 py-1 rounded-md bg-[#9F1239] text-white text-[11px] font-mono font-medium">
                   TIME: {secondsLeft}s
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="px-2.5 py-1 rounded-md bg-white/10 text-xs font-mono text-slate-200">
+                  <span className="px-2.5 py-1 rounded-md bg-white/20 text-xs font-mono text-white">
                     COMBO {combo}X
                   </span>
-                  <span className="px-2.5 py-1 rounded-md bg-rose-600/30 border border-rose-500/40 text-xs font-mono text-rose-300">
+                  <span className="px-2.5 py-1 rounded-md bg-[#9F1239]/80 border border-white/30 text-xs font-mono text-white">
                     SCORE: {score}
                   </span>
                 </div>
               </div>
 
               <div className="text-center">
-                <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-sm text-xs font-medium text-white border border-white/10">
+                <span className="px-3 py-1 rounded-lg bg-black/70 backdrop-blur-sm text-xs font-medium text-white border border-white/20">
                   {feedback}
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 flex items-center justify-between">
+              <div className="p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="text-2xl">{currentMove.icon}</span>
                   <div>
                     <h5 className="font-semibold text-white text-xs">{currentMove.name}</h5>
-                    <p className="text-[11px] text-slate-400">{currentMove.desc}</p>
+                    <p className="text-[11px] text-stone-300">{currentMove.desc}</p>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono text-slate-400">{secondsLeft % 8}s</span>
+                <span className="text-[10px] font-mono text-stone-400">{secondsLeft % 8}s</span>
               </div>
             </div>
           )}
@@ -184,14 +184,14 @@ export default function MoveMirrorModal({ isOpen, onClose, onClaimTrial }) {
 
         {/* Footer controls or Results */}
         {!challengeFinished ? (
-          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <span className="text-[11px] text-slate-400">
-              💡 Enable beat audio in the DJ deck for audio cues.
+          <div className="mt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span className="text-xs text-stone-500">
+              Follow the on-screen dance cues and hold the posture!
             </span>
             {!isPlaying ? (
               <button
                 onClick={startChallenge}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs transition-colors cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white font-medium text-xs transition-colors cursor-pointer flex items-center justify-center gap-2"
               >
                 <Play className="w-3.5 h-3.5 fill-white" />
                 <span>Start 30-Sec Challenge</span>
@@ -202,33 +202,33 @@ export default function MoveMirrorModal({ isOpen, onClose, onClaimTrial }) {
                   clearInterval(timerRef.current);
                   setIsPlaying(false);
                 }}
-                className="w-full sm:w-auto px-4 py-2 rounded-lg bg-white/10 text-slate-300 text-xs font-medium"
+                className="w-full sm:w-auto px-4 py-2 rounded-full bg-[#FAF9F6] border border-[#E7E5E0] text-stone-700 text-xs font-medium hover:bg-[#F5F3EF]"
               >
                 Pause
               </button>
             )}
           </div>
         ) : (
-          <div className="mt-4 p-4 rounded-xl bg-black/40 border border-white/10 text-center space-y-2.5">
-            <h4 className="font-display font-bold text-lg text-white">
+          <div className="mt-5 p-5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-center space-y-3">
+            <h4 className="font-serif font-bold text-xl text-[#1C1917]">
               Challenge Complete • Score: {score}
             </h4>
-            <p className="text-xs text-slate-400 max-w-sm mx-auto">
+            <p className="text-xs text-stone-600 max-w-sm mx-auto">
               Nice groove! Come experience the real dance floor with our instructors at Malviya Nagar.
             </p>
-            <div className="flex gap-2 pt-1">
+            <div className="flex gap-2 pt-2">
               <button
                 onClick={() => {
                   onClose();
                   if (onClaimTrial) onClaimTrial();
                 }}
-                className="flex-1 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs transition-colors cursor-pointer"
+                className="flex-1 py-2.5 rounded-full bg-[#9F1239] hover:bg-[#881337] text-white font-medium text-xs transition-colors cursor-pointer"
               >
                 Claim Free Studio Trial Pass
               </button>
               <button
                 onClick={startChallenge}
-                className="px-3.5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium hover:bg-white/10 flex items-center justify-center gap-1 cursor-pointer"
+                className="px-4 py-2.5 rounded-full bg-white border border-[#E7E5E0] text-stone-700 text-xs font-medium hover:bg-[#F5F3EF] flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" /> Retry
               </button>

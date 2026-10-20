@@ -1,32 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --bg-dark: #0C0A14;
-  --surface: #14121F;
-  --surface-elevated: #1C192B;
-  --border: #28243D;
-  --accent-rose: #E11D48;
-  --accent-amber: #F59E0B;
-  --accent-teal: #14B8A6;
-  --accent-indigo: #6366F1;
+  --bg-main: #FAF9F6;
+  --surface: #FFFFFF;
+  --surface-muted: #F5F3EF;
+  --border: #E7E5E0;
+  --border-subtle: #F0EEE9;
+  --text-main: #1C1917;
+  --text-muted: #78716C;
+  --text-subtle: #A8A29E;
+  --accent-rose: #9F1239;
+  --accent-amber: #D97706;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--bg-dark);
-  color: #F8FAFC;
+  background-color: var(--bg-main);
+  color: var(--text-main);
   overflow-x: hidden;
-  transition: background-color 0.4s ease;
+  letter-spacing: -0.01em;
 }
 
-/* Refined Modern Typography */
+/* Editorial Minimalist Typography */
 .font-display {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', Georgia, serif;
   letter-spacing: -0.02em;
-}
-
-.font-fun {
-  font-family: 'Caveat', cursive;
 }
 
 .font-body {
@@ -37,42 +35,23 @@ body {
   font-family: 'Mukta', sans-serif;
 }
 
-/* Classy Subtle Glassmorphism */
-.glass-panel {
-  background: rgba(20, 18, 31, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-panel-elevated {
-  background: rgba(28, 25, 43, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* Subtle Film Texture */
-.bg-grain {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
-  background-size: 32px 32px;
-}
-
-/* Refined Scrollbar */
+/* Refined Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0A14;
+  background: #FAF9F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #28243D;
+  background: #D6D3CD;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #E11D48;
+  background: #A8A29E;
 }
 
-/* Marquee infinite scroll */
+/* Minimalist Marquee */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -81,19 +60,19 @@ body {
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 30s linear infinite;
+  animation: marquee 35s linear infinite;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
 }
 
-/* Vinyl Spin */
+/* Slow vinyl rotation */
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 .animate-spin-slow {
-  animation: spin-slow 16s linear infinite;
+  animation: spin-slow 20s linear infinite;
 }

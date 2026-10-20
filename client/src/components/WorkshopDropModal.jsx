@@ -33,7 +33,7 @@ export default function WorkshopDropModal({ isOpen, workshop, onClose }) {
       const data = await res.json();
       if (data.success) {
         setTicketIssued(data.ticket);
-        confetti({ particleCount: 60, spread: 55 });
+        confetti({ particleCount: 50, spread: 45 });
       }
     } catch {
       const fallbackTicket = {
@@ -54,50 +54,49 @@ export default function WorkshopDropModal({ isOpen, workshop, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-lg rounded-2xl bg-[#14121F] border border-white/10 p-6 sm:p-7 text-white shadow-2xl my-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs animate-in fade-in duration-200 overflow-y-auto">
+      <div className="relative w-full max-w-lg rounded-2xl bg-white border border-[#E7E5E0] p-7 text-[#1C1917] shadow-xl my-6">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors z-20 cursor-pointer"
+          className="absolute top-5 right-5 p-1.5 rounded-full text-[#78716C] hover:text-[#1C1917] hover:bg-[#F5F3EF] transition-colors z-20 cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
 
         {!ticketIssued ? (
           <div>
-            {/* Header */}
-            <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-              WORKSHOP PASS
+            <span className="text-[11px] uppercase tracking-wider text-[#9F1239] font-semibold block mb-1">
+              Workshop Pass
             </span>
 
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+            <h3 className="font-display font-medium text-2xl text-[#1C1917]">
               {workshop.title}
             </h3>
-            <p className="text-xs text-amber-300 font-medium mt-0.5 mb-4">
+            <p className="text-xs text-[#78716C] mt-1 mb-5">
               With {workshop.guestArtist}
             </p>
 
             {/* Date & Venue Info */}
-            <div className="space-y-1.5 p-3 rounded-xl bg-black/30 border border-white/5 text-xs text-slate-300 mb-5">
+            <div className="space-y-2 p-3.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-xs text-[#57534E] mb-5">
               <div className="flex items-center gap-2">
-                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <Calendar className="w-3.5 h-3.5 text-[#A8A29E]" />
                 <span>{workshop.date}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                <Clock className="w-3.5 h-3.5 text-[#A8A29E]" />
                 <span>{workshop.time}</span>
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                <span>{workshop.venue}</span>
+                <MapPin className="w-3.5 h-3.5 text-[#A8A29E]" />
+                <span className="truncate">{workshop.venue}</span>
               </div>
             </div>
 
             {/* Tiers Selector */}
             <div className="space-y-2 mb-5">
-              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
-                Select Ticket Tier:
+              <span className="text-[11px] uppercase tracking-wider text-[#78716C] font-medium block">
+                Select Pass Option:
               </span>
               <div className="space-y-2">
                 {workshop.tiers.map((tier) => (
@@ -105,28 +104,28 @@ export default function WorkshopDropModal({ isOpen, workshop, onClose }) {
                     key={tier.name}
                     type="button"
                     onClick={() => setSelectedTier(tier)}
-                    className={`w-full p-3 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
+                    className={`w-full p-3.5 rounded-xl border flex items-center justify-between text-left transition-all cursor-pointer ${
                       currentTier.name === tier.name
-                        ? 'bg-rose-600/15 border-rose-500/70 text-white'
-                        : 'bg-black/20 border-white/5 hover:border-white/20'
+                        ? 'bg-[#F5F3EF] border-[#1C1917] text-[#1C1917]'
+                        : 'bg-white border-[#E7E5E0] text-[#57534E] hover:border-[#D6D3CD]'
                     }`}
                   >
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-xs sm:text-sm text-white">{tier.name}</span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-white/5 text-slate-300 border border-white/5">
+                        <span className="font-medium text-xs sm:text-sm text-[#1C1917]">{tier.name}</span>
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#E7E5E0] text-[#57534E]">
                           {tier.tag}
                         </span>
                       </div>
-                      <span className="text-[11px] text-slate-400 font-mono mt-0.5 block">
+                      <span className="text-[11px] text-[#78716C] font-mono mt-0.5 block">
                         {tier.sold}/{tier.limit} spots claimed
                       </span>
                     </div>
 
                     <div className="text-right">
-                      <span className="font-display font-bold text-base text-white">₹{tier.price}</span>
+                      <span className="font-display font-semibold text-base text-[#1C1917]">₹{tier.price}</span>
                       {tier.originalPrice && (
-                        <span className="text-[10px] text-slate-500 line-through block">₹{tier.originalPrice}</span>
+                        <span className="text-[11px] text-[#A8A29E] line-through block">₹{tier.originalPrice}</span>
                       )}
                     </div>
                   </button>
@@ -135,37 +134,37 @@ export default function WorkshopDropModal({ isOpen, workshop, onClose }) {
             </div>
 
             {/* Booking Form */}
-            <form onSubmit={handleBookTicket} className="space-y-2.5">
+            <form onSubmit={handleBookTicket} className="space-y-3">
               <input
                 type="text"
                 placeholder="Attendee Full Name *"
                 required
                 value={attendeeName}
                 onChange={(e) => setAttendeeName(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#1C1917]"
               />
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2.5">
                 <input
                   type="tel"
                   placeholder="WhatsApp Mobile *"
                   required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#1C1917]"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#1C1917]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs tracking-wide transition-colors cursor-pointer mt-1"
+                className="w-full py-3 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs tracking-wide transition-colors cursor-pointer mt-2"
               >
                 {isSubmitting ? 'Securing Pass...' : `Get Workshop Pass • ₹${currentTier.price}`}
               </button>
@@ -173,60 +172,60 @@ export default function WorkshopDropModal({ isOpen, workshop, onClose }) {
           </div>
         ) : (
           /* Digital QR Ticket Pass */
-          <div className="text-center space-y-3.5">
-            <h3 className="font-display font-bold text-xl text-white">
+          <div className="text-center space-y-4 py-2">
+            <h3 className="font-display font-medium text-2xl text-[#1C1917]">
               Workshop Pass Issued
             </h3>
 
             {/* Ticket Card */}
-            <div className="p-4 rounded-xl bg-black/40 border border-white/10 text-left space-y-2.5 text-xs">
-              <div className="flex items-center justify-between border-b border-white/5 pb-2">
+            <div className="p-5 rounded-2xl bg-[#FAF9F6] border border-[#E7E5E0] text-left space-y-3 text-xs max-w-sm mx-auto">
+              <div className="flex items-center justify-between border-b border-[#E7E5E0] pb-2.5">
                 <div>
-                  <span className="text-[9px] font-mono text-rose-400 uppercase font-semibold">SARGAM PASS</span>
-                  <h4 className="font-semibold text-sm text-white">{ticketIssued.workshopTitle}</h4>
+                  <span className="text-[10px] text-[#9F1239] font-medium uppercase tracking-wider">SARGAM PASS</span>
+                  <h4 className="font-medium text-sm text-[#1C1917] mt-0.5">{ticketIssued.workshopTitle}</h4>
                 </div>
-                <span className="font-mono text-xs px-2 py-0.5 rounded bg-white/10 text-slate-200">
+                <span className="font-mono text-xs px-2 py-0.5 rounded bg-white border border-[#E7E5E0] text-[#57534E]">
                   {ticketIssued.ticketId}
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2 text-xs">
                 <div>
-                  <span className="text-[10px] text-slate-500 block">DANCER</span>
-                  <span className="font-medium text-white">{ticketIssued.attendeeName}</span>
+                  <span className="text-[10px] text-[#A8A29E] block">ATTENDEE</span>
+                  <span className="font-medium text-[#1C1917]">{ticketIssued.attendeeName}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 block">TIER</span>
-                  <span className="font-medium text-slate-200">{ticketIssued.tier}</span>
+                  <span className="text-[10px] text-[#A8A29E] block">TIER</span>
+                  <span className="font-medium text-[#1C1917]">{ticketIssued.tier}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 block">DATE & TIME</span>
-                  <span className="text-slate-300">{ticketIssued.date}</span>
+                  <span className="text-[10px] text-[#A8A29E] block">DATE</span>
+                  <span className="text-[#57534E]">{ticketIssued.date}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-500 block">AMOUNT</span>
-                  <span className="text-rose-400 font-semibold">₹{ticketIssued.pricePaid} Paid</span>
+                  <span className="text-[10px] text-[#A8A29E] block">AMOUNT</span>
+                  <span className="text-[#9F1239] font-semibold">₹{ticketIssued.pricePaid} Paid</span>
                 </div>
               </div>
 
-              {/* QR code */}
-              <div className="pt-2 border-t border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-12 h-12 bg-white p-1 rounded flex items-center justify-center">
+              {/* QR Code */}
+              <div className="pt-2.5 border-t border-[#E7E5E0] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-12 h-12 bg-white p-1 rounded-lg border border-[#E7E5E0] flex items-center justify-center">
                     <QrCode className="w-10 h-10 text-black" />
                   </div>
-                  <div className="text-[10px] text-slate-400">
-                    <p className="text-emerald-400 font-medium">Verified Pass</p>
-                    <p>Show at studio entrance</p>
+                  <div className="text-[10px] text-[#78716C]">
+                    <p className="text-emerald-700 font-medium">Verified Studio Pass</p>
+                    <p>Show at entrance</p>
                   </div>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">Jaipur</span>
+                <span className="text-[11px] text-[#A8A29E] font-medium">Jaipur, RJ</span>
               </div>
             </div>
 
             <button
               onClick={onClose}
-              className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-medium text-xs transition-colors cursor-pointer"
+              className="w-full py-2.5 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs transition-colors cursor-pointer"
             >
               Done
             </button>

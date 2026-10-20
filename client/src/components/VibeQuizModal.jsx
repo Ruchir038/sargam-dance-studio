@@ -147,39 +147,39 @@ export default function VibeQuizModal({ isOpen, onClose, onSelectBatch }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-lg rounded-2xl bg-[#14121F] border border-white/10 p-6 sm:p-7 text-white shadow-2xl my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+      <div className="relative w-full max-w-lg rounded-2xl bg-white border border-[#E7E5E0] p-6 sm:p-8 text-[#1C1917] shadow-xl my-8">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
+          className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] text-stone-500 hover:text-[#1C1917] transition-colors cursor-pointer border border-[#E7E5E0]"
         >
           <X className="w-5 h-5" />
         </button>
 
         {!result ? (
           <div>
-            <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
+            <span className="text-[11px] font-mono text-[#9F1239] tracking-wider uppercase font-semibold block mb-1">
               DANCE STYLE MATCH
             </span>
 
-            <h3 className="font-display font-bold text-xl text-white mb-1">
+            <h3 className="font-serif font-semibold text-2xl text-[#1C1917] mb-1">
               Find Your Dance Style
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
+            <p className="text-xs text-stone-500 mb-6">
               Question {currentQuestion + 1} of {QUIZ_QUESTIONS.length}
             </p>
 
             {/* Progress bar */}
-            <div className="w-full h-1.5 bg-black/40 rounded-full mb-6 overflow-hidden border border-white/5">
+            <div className="w-full h-1.5 bg-[#FAF9F6] rounded-full mb-6 overflow-hidden border border-[#E7E5E0]">
               <div
-                className="h-full bg-rose-500 transition-all duration-300"
+                className="h-full bg-[#9F1239] transition-all duration-300"
                 style={{ width: `${((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100}%` }}
               />
             </div>
 
             {/* Question title */}
-            <h4 className="text-sm sm:text-base font-semibold text-slate-100 mb-4 leading-snug">
+            <h4 className="text-sm sm:text-base font-semibold text-[#1C1917] mb-4 leading-snug">
               {QUIZ_QUESTIONS[currentQuestion].question}
             </h4>
 
@@ -189,72 +189,72 @@ export default function VibeQuizModal({ isOpen, onClose, onSelectBatch }) {
                 <button
                   key={idx}
                   onClick={() => handleSelectOption(idx, opt)}
-                  className={`w-full p-3.5 rounded-xl border text-left text-xs sm:text-sm transition-all flex items-center justify-between group cursor-pointer ${
+                  className={`w-full p-4 rounded-xl border text-left text-xs sm:text-sm transition-all flex items-center justify-between group cursor-pointer ${
                     selectedOption === idx
-                      ? 'bg-rose-600 border-rose-500 text-white font-medium'
-                      : 'bg-black/30 border-white/10 text-slate-300 hover:border-white/30 hover:bg-white/5'
+                      ? 'bg-[#9F1239] border-[#9F1239] text-white font-medium shadow-sm'
+                      : 'bg-[#FAF9F6] border-[#E7E5E0] text-stone-700 hover:border-stone-400 hover:bg-[#F5F3EF]'
                   }`}
                 >
-                  <span>{opt.text}</span>
-                  <ArrowRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <span className="leading-snug">{opt.text}</span>
+                  <ArrowRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity shrink-0 ml-2" />
                 </button>
               ))}
             </div>
           </div>
         ) : (
           /* Result Screen */
-          <div className="text-center space-y-4 animate-in zoom-in-95 duration-200">
-            <div className="w-14 h-14 mx-auto rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl">
+          <div className="text-center space-y-4 animate-in zoom-in-95 duration-200 py-2">
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-[#FAF9F6] border border-[#E7E5E0] flex items-center justify-center text-3xl">
               {result.spiritIcon}
             </div>
 
             <div>
-              <span className="text-xs font-mono text-rose-400 uppercase tracking-wider block font-semibold">
+              <span className="text-[11px] font-mono text-[#9F1239] uppercase tracking-wider block font-semibold">
                 YOUR STYLE MATCH
               </span>
-              <h3 className="font-display font-bold text-2xl text-white mt-1">
+              <h3 className="font-serif font-bold text-2xl sm:text-3xl text-[#1C1917] mt-1">
                 {result.title}
               </h3>
-              <p className="text-xs text-amber-300 font-medium mt-0.5">
+              <p className="text-xs text-[#9F1239] font-medium mt-1">
                 {result.archetype}
               </p>
             </div>
 
-            <p className="text-xs text-slate-300 max-w-sm mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-stone-600 max-w-sm mx-auto leading-relaxed">
               {result.description}
             </p>
 
             {/* Recommended Batch Box */}
-            <div className="p-3.5 rounded-xl bg-black/40 border border-white/10 text-left">
-              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+            <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-left">
+              <span className="text-[10px] font-mono text-stone-500 uppercase tracking-wider block">
                 RECOMMENDED JAIPUR BATCH
               </span>
-              <div className="flex items-center justify-between mt-1">
+              <div className="flex items-center justify-between mt-1.5">
                 <div>
-                  <h5 className="font-semibold text-white text-sm">{result.batchTitle}</h5>
-                  <p className="text-[11px] text-slate-400">Coach: {result.instructor}</p>
+                  <h5 className="font-semibold text-[#1C1917] text-sm">{result.batchTitle}</h5>
+                  <p className="text-xs text-stone-500">Coach: {result.instructor}</p>
                 </div>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 font-medium">
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#9F1239]/10 text-[#9F1239] border border-[#9F1239]/20 font-medium">
                   96% Match
                 </span>
               </div>
             </div>
 
             {/* CTAs */}
-            <div className="pt-2 space-y-2">
+            <div className="pt-3 space-y-2">
               <button
                 onClick={() => {
                   onClose();
                   if (onSelectBatch) onSelectBatch(result.batchSlug);
                 }}
-                className="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs tracking-wide transition-colors cursor-pointer"
+                className="w-full py-3 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white font-medium text-xs tracking-wide transition-colors cursor-pointer"
               >
                 View Batch & Reserve Formation Spot
               </button>
 
               <button
                 onClick={resetQuiz}
-                className="inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer pt-1"
+                className="inline-flex items-center gap-1.5 text-xs text-stone-500 hover:text-[#1C1917] transition-colors cursor-pointer pt-1"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Retake Quiz</span>

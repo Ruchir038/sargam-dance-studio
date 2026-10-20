@@ -3,17 +3,17 @@ import { Calendar, Clock, MapPin, Ticket } from 'lucide-react';
 
 export default function WorkshopsSection({ workshops = [], onSelectWorkshop }) {
   return (
-    <section id="workshops" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="workshops" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-12">
-        <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-          MASTERCLASSES & EVENTS
+      <div className="text-center mb-14">
+        <span className="text-xs uppercase tracking-widest text-[#78716C] font-semibold block mb-2">
+          Intensives & Masterclasses
         </span>
-        <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-display font-medium text-[#1C1917] tracking-tight">
           Upcoming Workshops
         </h2>
-        <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
-          Intensive sessions with guest choreographers, performance shoots, and certification.
+        <p className="text-sm text-[#78716C] mt-2 max-w-md mx-auto">
+          One-off masterclasses with guest choreographers, certified technical drills, and routine video shoots.
         </p>
       </div>
 
@@ -22,30 +22,27 @@ export default function WorkshopsSection({ workshops = [], onSelectWorkshop }) {
         {workshops.map((ws) => (
           <div
             key={ws.id}
-            className="group rounded-2xl bg-[#13111C] border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+            className="group rounded-2xl bg-white border border-[#E7E5E0] hover:border-[#D6D3CD] transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-sm"
           >
             {/* Poster Header */}
-            <div className="relative aspect-[16/9] overflow-hidden bg-slate-900">
+            <div className="relative aspect-[16/9] overflow-hidden bg-[#F5F3EF]">
               <img
                 src={ws.poster}
                 alt={ws.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#13111C] via-[#13111C]/40 to-transparent" />
-
-              <span className="absolute top-3.5 left-3.5 px-2.5 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-mono font-semibold">
+              <span className="absolute top-3.5 left-3.5 px-3 py-0.5 rounded-full bg-white/90 backdrop-blur-sm text-[#1C1917] text-[11px] font-medium border border-stone-200">
                 {ws.status}
               </span>
-
-              <span className="absolute top-3.5 right-3.5 px-2.5 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-amber-300 font-semibold">
-                ⏰ {ws.earlyBirdDeadline}
+              <span className="absolute top-3.5 right-3.5 px-3 py-0.5 rounded-full bg-white/90 backdrop-blur-sm text-[#9F1239] text-[11px] font-medium border border-stone-200">
+                {ws.earlyBirdDeadline}
               </span>
 
-              <div className="absolute bottom-3.5 left-4 right-4">
-                <span className="text-[10px] text-slate-400 font-mono tracking-wider uppercase block">
-                  CHOREOGRAPHER
+              <div className="absolute bottom-3 left-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl border border-stone-200">
+                <span className="text-[10px] text-[#78716C] uppercase tracking-wider block font-medium">
+                  Choreographer & Artist
                 </span>
-                <h4 className="font-display font-bold text-base sm:text-lg text-white">
+                <h4 className="font-display font-medium text-base text-[#1C1917]">
                   {ws.guestArtist}
                 </h4>
               </div>
@@ -54,38 +51,38 @@ export default function WorkshopsSection({ workshops = [], onSelectWorkshop }) {
             {/* Content Details */}
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-display font-bold text-xl text-white mb-2">
+                <h3 className="font-display font-medium text-xl text-[#1C1917] mb-2">
                   {ws.title}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed mb-4">
+                <p className="text-xs text-[#78716C] leading-relaxed mb-5">
                   {ws.description}
                 </p>
 
-                <div className="space-y-1.5 p-3 rounded-xl bg-white/5 border border-white/5 text-xs text-slate-300 mb-5">
+                <div className="space-y-2 p-3.5 rounded-xl bg-[#F5F3EF] text-xs text-[#57534E] mb-5">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                    <Calendar className="w-3.5 h-3.5 text-[#A8A29E]" />
                     <span>{ws.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    <Clock className="w-3.5 h-3.5 text-[#A8A29E]" />
                     <span>{ws.time}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                    <MapPin className="w-3.5 h-3.5 text-[#A8A29E]" />
                     <span className="truncate">{ws.venue}</span>
                   </div>
                 </div>
 
                 {/* Tiers Preview */}
-                <div className="space-y-1.5 mb-5">
-                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
-                    Pass Tiers:
+                <div className="space-y-2 mb-6">
+                  <span className="text-[10px] uppercase tracking-wider text-[#A8A29E] font-medium block">
+                    Available Pass Options:
                   </span>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {ws.tiers.map((t, idx) => (
-                      <div key={idx} className="p-2.5 rounded-xl bg-black/30 border border-white/5 text-center">
-                        <span className="text-[10px] font-medium text-slate-300 block truncate">{t.name}</span>
-                        <span className="font-display font-bold text-sm text-rose-400">₹{t.price}</span>
+                      <div key={idx} className="p-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-center">
+                        <span className="text-[11px] font-medium text-[#44403C] block truncate">{t.name}</span>
+                        <span className="font-display font-semibold text-sm text-[#1C1917]">₹{t.price}</span>
                       </div>
                     ))}
                   </div>
@@ -95,10 +92,10 @@ export default function WorkshopsSection({ workshops = [], onSelectWorkshop }) {
               {/* Action Button */}
               <button
                 onClick={() => onSelectWorkshop(ws)}
-                className="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs tracking-wide transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-sm"
+                className="w-full py-3 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs tracking-wide transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-xs"
               >
-                <Ticket className="w-4 h-4" />
-                <span>Claim Workshop Pass & QR Ticket</span>
+                <Ticket className="w-3.5 h-3.5 opacity-70" />
+                <span>Reserve Workshop Pass & QR Ticket</span>
               </button>
             </div>
           </div>

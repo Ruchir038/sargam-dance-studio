@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function StylesSection({ styles = [], onSelectStyle, onTrialForStyle }) {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -17,18 +17,18 @@ export default function StylesSection({ styles = [], onSelectStyle, onTrialForSt
   });
 
   return (
-    <section id="styles" className="py-20 px-4 max-w-7xl mx-auto">
+    <section id="styles" className="py-24 px-6 sm:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-          <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-            JAIPUR CURRICULUM
+          <span className="text-xs uppercase tracking-widest text-[#78716C] font-semibold block mb-2">
+            Jaipur Curriculum
           </span>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-display font-medium text-[#1C1917] tracking-tight">
             Dance Styles & Programs
           </h2>
-          <p className="text-sm text-slate-400 mt-1">
-            Structured foundation programs tailored for hobbyists, fitness, and stage performers.
+          <p className="text-sm text-[#78716C] mt-2 max-w-md">
+            Thoughtfully crafted programs for hobby dancers, fitness seekers, and stage performers.
           </p>
         </div>
 
@@ -38,10 +38,10 @@ export default function StylesSection({ styles = [], onSelectStyle, onTrialForSt
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
                 activeFilter === f
-                  ? 'bg-rose-600 text-white shadow-sm'
-                  : 'bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-white/20'
+                  ? 'bg-[#1C1917] text-white shadow-xs'
+                  : 'bg-white border border-[#E7E5E0] text-[#78716C] hover:text-[#1C1917] hover:border-[#D6D3CD]'
               }`}
             >
               {f}
@@ -51,49 +51,46 @@ export default function StylesSection({ styles = [], onSelectStyle, onTrialForSt
       </div>
 
       {/* Styles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredStyles.map((style) => (
           <div
             key={style.id}
-            className="group rounded-2xl bg-[#13111C] border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+            className="group rounded-2xl bg-white border border-[#E7E5E0] hover:border-[#D6D3CD] transition-all duration-300 overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-sm"
           >
-            {/* Image Header with Subtle Gradient */}
-            <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+            {/* Image Header */}
+            <div className="relative aspect-[16/10] overflow-hidden bg-[#F5F3EF]">
               <img
                 src={style.heroImage}
                 alt={style.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#13111C] via-[#13111C]/30 to-transparent" />
-
-              <span className="absolute top-3 left-3 text-[10px] font-medium text-white/90 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm border border-white/10">
+              <span className="absolute top-3 left-3 text-[11px] font-medium text-[#1C1917] px-2.5 py-0.5 rounded-full bg-white/90 backdrop-blur-sm border border-stone-200 shadow-xs">
                 {style.level?.[0] || 'All Levels'}
               </span>
-
-              <span className="absolute bottom-2 right-3 font-hindi text-sm text-slate-300 font-medium">
+              <span className="absolute bottom-3 right-3 font-hindi text-sm text-[#44403C] font-medium bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded-md">
                 {style.nameHindi}
               </span>
             </div>
 
             {/* Body */}
-            <div className="p-5 flex-1 flex flex-col justify-between">
+            <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="font-display font-bold text-lg text-white group-hover:text-rose-400 transition-colors">
+                <h3 className="font-display font-medium text-xl text-[#1C1917]">
                   {style.name}
                 </h3>
-                <p className="text-xs text-amber-300/90 font-medium mt-0.5 mb-2.5">
+                <p className="text-xs text-[#9F1239] font-medium mt-1 mb-3">
                   "{style.tagline}"
                 </p>
-                <p className="text-xs text-slate-400 leading-relaxed line-clamp-3 mb-4">
+                <p className="text-xs text-[#78716C] leading-relaxed line-clamp-3 mb-5">
                   {style.description}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-5">
                   {style.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5 font-medium"
+                      className="text-[11px] px-2.5 py-0.5 rounded-md bg-[#F5F3EF] text-[#57534E]"
                     >
                       {tag}
                     </span>
@@ -102,21 +99,21 @@ export default function StylesSection({ styles = [], onSelectStyle, onTrialForSt
               </div>
 
               {/* Local Note & Buttons */}
-              <div className="pt-3 border-t border-white/5 space-y-3">
-                <p className="text-[11px] text-slate-500 truncate">
+              <div className="pt-4 border-t border-[#F0EEE9] space-y-4">
+                <p className="text-xs text-[#A8A29E]">
                   📍 {style.popularInJaipur}
                 </p>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <button
                     onClick={() => onTrialForStyle(style)}
-                    className="flex-1 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs transition-colors cursor-pointer text-center"
+                    className="flex-1 py-2.5 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs transition-colors cursor-pointer text-center"
                   >
-                    Claim Free Trial
+                    Book a Trial
                   </button>
                   <a
                     href="#schedule"
-                    className="px-3.5 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 text-xs font-medium transition-colors cursor-pointer"
+                    className="px-4 py-2.5 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] border border-[#E7E5E0] text-[#44403C] text-xs font-medium transition-colors cursor-pointer"
                   >
                     Batches
                   </a>

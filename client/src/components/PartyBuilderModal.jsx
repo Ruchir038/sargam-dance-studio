@@ -64,12 +64,12 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-[#14121F] border border-white/10 p-6 sm:p-7 text-white shadow-2xl my-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-in fade-in duration-200 overflow-y-auto">
+      <div className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-6 sm:p-8 text-[#1C1917] shadow-xl my-6">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors z-20 cursor-pointer"
+          className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF9F6] hover:bg-[#F5F3EF] text-stone-500 hover:text-[#1C1917] transition-colors z-20 cursor-pointer border border-[#E7E5E0]"
         >
           <X className="w-5 h-5" />
         </button>
@@ -77,41 +77,41 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
         {!isSubmitted ? (
           <div>
             {/* Header */}
-            <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
+            <span className="text-[11px] font-mono text-[#9F1239] tracking-wider uppercase font-semibold block mb-1">
               CHOREOGRAPHY ESTIMATOR
             </span>
 
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+            <h3 className="font-serif font-semibold text-2xl sm:text-3xl text-[#1C1917]">
               Sangeet & Event Choreography
             </h3>
-            <p className="text-xs text-slate-400 mb-5">
+            <p className="text-xs text-stone-500 mb-6">
               Customize song count, participants, and rehearsal slots for transparent pricing in Jaipur.
             </p>
 
             {/* Event Type Grid */}
-            <div className="grid grid-cols-2 gap-2.5 mb-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
               {EVENT_TYPES.map((et) => (
                 <button
                   key={et.id}
                   onClick={() => setEventType(et)}
-                  className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                  className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
                     eventType.id === et.id
-                      ? 'bg-rose-600/15 border-rose-500/60 text-white'
-                      : 'bg-black/20 border-white/10 text-slate-400 hover:border-white/20 hover:text-slate-300'
+                      ? 'bg-[#9F1239]/5 border-[#9F1239] text-[#1C1917]'
+                      : 'bg-[#FAF9F6] border-[#E7E5E0] text-stone-600 hover:border-stone-400'
                   }`}
                 >
-                  <h5 className="font-semibold text-xs sm:text-sm text-white">{et.name}</h5>
-                  <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">{et.desc}</p>
+                  <h5 className="font-semibold text-xs sm:text-sm text-[#1C1917]">{et.name}</h5>
+                  <p className="text-[11px] text-stone-500 mt-0.5 line-clamp-1">{et.desc}</p>
                 </button>
               ))}
             </div>
 
             {/* Config Sliders */}
-            <div className="space-y-3.5 bg-black/30 p-4 rounded-xl border border-white/5 mb-5">
+            <div className="space-y-4 bg-[#FAF9F6] p-4 sm:p-5 rounded-xl border border-[#E7E5E0] mb-5">
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs">
-                  <span className="text-slate-400">Number of Songs:</span>
-                  <span className="font-mono font-semibold text-rose-400">{songCount} Tracks</span>
+                <div className="flex justify-between items-center mb-1.5 text-xs">
+                  <span className="text-stone-600">Number of Songs:</span>
+                  <span className="font-mono font-semibold text-[#9F1239]">{songCount} Tracks</span>
                 </div>
                 <input
                   type="range"
@@ -119,14 +119,14 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
                   max="7"
                   value={songCount}
                   onChange={(e) => setSongCount(Number(e.target.value))}
-                  className="w-full accent-rose-500 cursor-pointer"
+                  className="w-full accent-[#9F1239] cursor-pointer"
                 />
               </div>
 
               <div>
-                <div className="flex justify-between items-center mb-1 text-xs">
-                  <span className="text-slate-400">Estimated Performers:</span>
-                  <span className="font-mono font-semibold text-amber-300">{dancerCount} People</span>
+                <div className="flex justify-between items-center mb-1.5 text-xs">
+                  <span className="text-stone-600">Estimated Performers:</span>
+                  <span className="font-mono font-semibold text-[#9F1239]">{dancerCount} People</span>
                 </div>
                 <input
                   type="range"
@@ -134,75 +134,75 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
                   max="25"
                   value={dancerCount}
                   onChange={(e) => setDancerCount(Number(e.target.value))}
-                  className="w-full accent-rose-500 cursor-pointer"
+                  className="w-full accent-[#9F1239] cursor-pointer"
                 />
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block mb-2">
+                <span className="text-[10px] font-mono text-stone-500 uppercase tracking-wider block mb-2 font-medium">
                   Optional Add-Ons:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                  <label className="flex items-center gap-2 p-2 rounded-lg bg-black/20 border border-white/5 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#E7E5E0] cursor-pointer hover:border-stone-400 transition-colors">
                     <input
                       type="checkbox"
                       checked={addons.audioMashup}
                       onChange={(e) => setAddons({ ...addons, audioMashup: e.target.checked })}
-                      className="accent-rose-500"
+                      className="accent-[#9F1239]"
                     />
-                    <span className="text-slate-300">DJ Audio Mashup (+₹1,500)</span>
+                    <span className="text-stone-700">DJ Audio Mashup (+₹1,500)</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-2 rounded-lg bg-black/20 border border-white/5 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#E7E5E0] cursor-pointer hover:border-stone-400 transition-colors">
                     <input
                       type="checkbox"
                       checked={addons.studioRehearsals}
                       onChange={(e) => setAddons({ ...addons, studioRehearsals: e.target.checked })}
-                      className="accent-rose-500"
+                      className="accent-[#9F1239]"
                     />
-                    <span className="text-slate-300">Studio Practice Slots (+₹2,500)</span>
+                    <span className="text-stone-700">Studio Practice Slots (+₹2,500)</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-2 rounded-lg bg-black/20 border border-white/5 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#E7E5E0] cursor-pointer hover:border-stone-400 transition-colors">
                     <input
                       type="checkbox"
                       checked={addons.venueDryRun}
                       onChange={(e) => setAddons({ ...addons, venueDryRun: e.target.checked })}
-                      className="accent-rose-500"
+                      className="accent-[#9F1239]"
                     />
-                    <span className="text-slate-300">On-Stage Dry Run (+₹3,500)</span>
+                    <span className="text-stone-700">On-Stage Dry Run (+₹3,500)</span>
                   </label>
 
-                  <label className="flex items-center gap-2 p-2 rounded-lg bg-black/20 border border-white/5 cursor-pointer">
+                  <label className="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-[#E7E5E0] cursor-pointer hover:border-stone-400 transition-colors">
                     <input
                       type="checkbox"
                       checked={addons.cinematicVideo}
                       onChange={(e) => setAddons({ ...addons, cinematicVideo: e.target.checked })}
-                      className="accent-rose-500"
+                      className="accent-[#9F1239]"
                     />
-                    <span className="text-slate-300">Gimbal Video Shoot (+₹3,000)</span>
+                    <span className="text-stone-700">Gimbal Video Shoot (+₹3,000)</span>
                   </label>
                 </div>
               </div>
             </div>
 
             {/* Live Price Estimation Box */}
-            <div className="p-4 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between mb-5">
+            <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] flex items-center justify-between mb-5">
               <div>
-                <span className="text-[10px] font-mono text-slate-400 tracking-wider uppercase block">
+                <span className="text-[10px] font-mono text-stone-500 tracking-wider uppercase block">
                   ESTIMATED PRICE
                 </span>
-                <span className="font-display font-bold text-2xl text-white">
+                <span className="font-serif font-bold text-2xl sm:text-3xl text-[#1C1917]">
                   ₹{totalEstimate.toLocaleString('en-IN')}
                 </span>
               </div>
-              <span className="text-xs text-slate-400 text-right max-w-[140px]">
+              <span className="text-xs text-stone-500 text-right max-w-[140px]">
                 Includes tutorials & coaching
               </span>
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmitEnquiry} className="space-y-2.5">
+            <form onSubmit={handleSubmitEnquiry} className="space-y-3">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <input
                   type="text"
@@ -210,7 +210,7 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
                   required
                   value={contactName}
                   onChange={(e) => setContactName(e.target.value)}
-                  className="px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                  className="px-3.5 py-2.5 rounded-lg bg-white border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#9F1239] transition-colors"
                 />
                 <input
                   type="tel"
@@ -218,19 +218,19 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
                   required
                   value={contactPhone}
                   onChange={(e) => setContactPhone(e.target.value)}
-                  className="px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                  className="px-3.5 py-2.5 rounded-lg bg-white border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#9F1239] transition-colors"
                 />
                 <input
                   type="date"
                   value={eventDate}
                   onChange={(e) => setEventDate(e.target.value)}
-                  className="px-3 py-2 rounded-lg bg-black/30 border border-white/10 text-xs text-white focus:outline-none focus:border-rose-500"
+                  className="px-3.5 py-2.5 rounded-lg bg-white border border-[#E7E5E0] text-xs text-[#1C1917] focus:outline-none focus:border-[#9F1239] transition-colors"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs tracking-wide transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                className="w-full py-3 rounded-full bg-[#1C1917] hover:bg-stone-800 text-white font-medium text-xs tracking-wide transition-colors cursor-pointer flex items-center justify-center gap-2"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Send Sangeet / Event Enquiry</span>
@@ -238,25 +238,25 @@ export default function PartyBuilderModal({ isOpen, onClose }) {
             </form>
           </div>
         ) : (
-          <div className="text-center space-y-3.5 py-4">
-            <h3 className="font-display font-bold text-xl text-white">
+          <div className="text-center space-y-4 py-6">
+            <h3 className="font-serif font-bold text-2xl text-[#1C1917]">
               Enquiry Received
             </h3>
-            <p className="text-xs text-slate-300 max-w-sm mx-auto">
+            <p className="text-xs sm:text-sm text-stone-600 max-w-sm mx-auto leading-relaxed">
               Our lead sangeet choreographer Aryan Joshi and team will review your estimated package (₹{totalEstimate.toLocaleString('en-IN')}) and message you on WhatsApp.
             </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+            <div className="pt-3 flex flex-col sm:flex-row gap-2.5">
               <button
                 onClick={openWhatsAppDirect}
-                className="flex-1 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="flex-1 py-3 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <MessageSquare className="w-4 h-4" />
                 <span>Chat On WhatsApp</span>
               </button>
               <button
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-lg bg-white/10 text-slate-300 text-xs font-medium hover:bg-white/15 cursor-pointer"
+                className="px-6 py-3 rounded-full bg-[#FAF9F6] border border-[#E7E5E0] text-stone-700 text-xs font-medium hover:bg-[#F5F3EF] cursor-pointer"
               >
                 Close
               </button>

@@ -103,7 +103,7 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
       const data = await res.json();
       if (data.success) {
         setBookingConfirmed(data.booking);
-        confetti({ particleCount: 70, spread: 60 });
+        confetti({ particleCount: 50, spread: 50 });
         if (onBookingSuccess) onBookingSuccess(data.booking);
       } else {
         setErrorMsg(data.message || 'Failed to complete booking.');
@@ -123,49 +123,48 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-      <div className="relative w-full max-w-2xl rounded-2xl bg-[#14121F] border border-white/10 p-6 sm:p-7 text-white shadow-2xl my-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs animate-in fade-in duration-200 overflow-y-auto">
+      <div className="relative w-full max-w-2xl rounded-2xl bg-white border border-[#E7E5E0] p-7 text-[#1C1917] shadow-xl my-6">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer z-20"
+          className="absolute top-5 right-5 p-1.5 rounded-full text-[#78716C] hover:text-[#1C1917] hover:bg-[#F5F3EF] transition-colors cursor-pointer z-20"
         >
           <X className="w-5 h-5" />
         </button>
 
         {!bookingConfirmed ? (
           <div>
-            {/* Header */}
-            <span className="text-xs font-mono text-rose-400 tracking-wider uppercase font-semibold block mb-1">
-              FORMATION SPOT RESERVATION
+            <span className="text-[11px] uppercase tracking-wider text-[#9F1239] font-semibold block mb-1">
+              Formation Spot Reservation
             </span>
 
-            <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
+            <h3 className="font-display font-medium text-2xl text-[#1C1917]">
               {batch.title}
             </h3>
-            <p className="text-xs text-slate-400 mb-4">
-              {batch.branch} • {batch.days.join(', ')} @ {batch.time} • ₹{batch.price}/mo
+            <p className="text-xs text-[#78716C] mt-1 mb-5">
+              {batch.branch} • {batch.days.join(', ')} @ {batch.time} • ₹{batch.price}/month
             </p>
 
             {errorMsg && (
-              <div className="p-3 mb-4 rounded-xl bg-red-950/60 border border-red-500/40 text-xs text-red-200">
+              <div className="p-3 mb-4 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700">
                 {errorMsg}
               </div>
             )}
 
             {/* Stage Mirror Indicator */}
-            <div className="w-full py-2 rounded-xl bg-black/30 border border-white/5 text-center mb-5">
-              <span className="text-[11px] font-mono tracking-wider uppercase text-slate-400">
-                🪞 Studio Wall Mirrors & Instructor Stage
+            <div className="w-full py-2.5 rounded-xl bg-[#F5F3EF] border border-[#E7E5E0] text-center mb-6">
+              <span className="text-xs tracking-wider uppercase text-[#57534E] font-medium">
+                Studio Mirrors & Instructor Stage
               </span>
             </div>
 
             {/* Studio Floor Spots Formation */}
-            <div className="space-y-4 bg-black/30 p-4 rounded-xl border border-white/5">
+            <div className="space-y-4 bg-[#FAF9F6] p-4 rounded-xl border border-[#E7E5E0]">
               {/* Row 1: Front Spotlight */}
               <div>
-                <span className="text-[10px] font-mono text-slate-400 block mb-2 font-medium uppercase">
-                  Row 1: Front Spotlight Line
+                <span className="text-[10px] uppercase tracking-wider text-[#78716C] block mb-2 font-medium">
+                  Row 1: Front Spotlight
                 </span>
                 <div className="grid grid-cols-4 gap-2">
                   {batch.spotsMap.slice(0, 4).map((spot) => {
@@ -175,17 +174,17 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
                         key={spot.id}
                         disabled={spot.isBooked}
                         onClick={() => handleSelectSpot(spot)}
-                        className={`p-2.5 rounded-lg border text-center transition-all cursor-pointer ${
+                        className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                           spot.isBooked
-                            ? 'bg-black/20 border-white/5 text-slate-600 cursor-not-allowed'
+                            ? 'bg-stone-200/50 border-stone-200 text-stone-400 cursor-not-allowed'
                             : isSelected
-                            ? 'bg-rose-600 border-white text-white font-bold'
-                            : 'bg-[#1C192B] border-white/10 text-slate-300 hover:border-white/30'
+                            ? 'bg-[#1C1917] border-[#1C1917] text-white font-semibold'
+                            : 'bg-white border-[#E7E5E0] text-[#1C1917] hover:border-[#1C1917]'
                         }`}
                       >
-                        <span className="text-xs font-mono font-semibold block">{spot.id}</span>
-                        <span className="text-[10px] block truncate text-slate-400">
-                          {spot.isBooked ? 'Booked' : 'Open'}
+                        <span className="text-xs font-mono font-medium block">{spot.id}</span>
+                        <span className="text-[10px] block truncate text-stone-500">
+                          {spot.isBooked ? 'Taken' : 'Open'}
                         </span>
                       </button>
                     );
@@ -195,8 +194,8 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
 
               {/* Row 2: Mid Formation */}
               <div>
-                <span className="text-[10px] font-mono text-slate-400 block mb-2 font-medium uppercase">
-                  Row 2: Mid Formation
+                <span className="text-[10px] uppercase tracking-wider text-[#78716C] block mb-2 font-medium">
+                  Row 2: Center Formation
                 </span>
                 <div className="grid grid-cols-5 gap-2">
                   {batch.spotsMap.slice(4, 9).map((spot) => {
@@ -206,16 +205,16 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
                         key={spot.id}
                         disabled={spot.isBooked}
                         onClick={() => handleSelectSpot(spot)}
-                        className={`p-2 rounded-lg border text-center transition-all cursor-pointer ${
+                        className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                           spot.isBooked
-                            ? 'bg-black/20 border-white/5 text-slate-600 cursor-not-allowed'
+                            ? 'bg-stone-200/50 border-stone-200 text-stone-400 cursor-not-allowed'
                             : isSelected
-                            ? 'bg-rose-600 border-white text-white font-bold'
-                            : 'bg-[#1C192B] border-white/10 text-slate-300 hover:border-white/30'
+                            ? 'bg-[#1C1917] border-[#1C1917] text-white font-semibold'
+                            : 'bg-white border-[#E7E5E0] text-[#1C1917] hover:border-[#1C1917]'
                         }`}
                       >
-                        <span className="text-xs font-mono font-semibold block">{spot.id}</span>
-                        <span className="text-[9px] block truncate text-slate-400">
+                        <span className="text-xs font-mono font-medium block">{spot.id}</span>
+                        <span className="text-[9px] block truncate text-stone-500">
                           {spot.isBooked ? 'Taken' : 'Open'}
                         </span>
                       </button>
@@ -226,7 +225,7 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
 
               {/* Row 3: Back Groove Zone */}
               <div>
-                <span className="text-[10px] font-mono text-slate-400 block mb-2 font-medium uppercase">
+                <span className="text-[10px] uppercase tracking-wider text-[#78716C] block mb-2 font-medium">
                   Row 3: Back Groove Zone
                 </span>
                 <div className="grid grid-cols-5 gap-2">
@@ -237,16 +236,16 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
                         key={spot.id}
                         disabled={spot.isBooked}
                         onClick={() => handleSelectSpot(spot)}
-                        className={`p-2 rounded-lg border text-center transition-all cursor-pointer ${
+                        className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                           spot.isBooked
-                            ? 'bg-black/20 border-white/5 text-slate-600 cursor-not-allowed'
+                            ? 'bg-stone-200/50 border-stone-200 text-stone-400 cursor-not-allowed'
                             : isSelected
-                            ? 'bg-rose-600 border-white text-white font-bold'
-                            : 'bg-[#1C192B] border-white/10 text-slate-300 hover:border-white/30'
+                            ? 'bg-[#1C1917] border-[#1C1917] text-white font-semibold'
+                            : 'bg-white border-[#E7E5E0] text-[#1C1917] hover:border-[#1C1917]'
                         }`}
                       >
-                        <span className="text-xs font-mono font-semibold block">{spot.id}</span>
-                        <span className="text-[9px] block truncate text-slate-400">
+                        <span className="text-xs font-mono font-medium block">{spot.id}</span>
+                        <span className="text-[9px] block truncate text-stone-500">
                           {spot.isBooked ? 'Taken' : 'Open'}
                         </span>
                       </button>
@@ -258,29 +257,29 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
 
             {/* 2-Min Hold Timer Badge */}
             {selectedSpot && (
-              <div className="mt-3.5 p-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between">
+              <div className="mt-4 p-3 rounded-xl bg-[#F5F3EF] border border-[#E7E5E0] flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-amber-300" />
-                  <span className="text-xs text-slate-200">
-                    Spot <strong className="text-rose-400">{selectedSpot.id}</strong> reserved for 2 minutes.
+                  <Clock className="w-4 h-4 text-[#9F1239]" />
+                  <span className="text-[#57534E]">
+                    Spot <strong className="text-[#1C1917]">{selectedSpot.id}</strong> reserved for 2 minutes.
                   </span>
                 </div>
-                <span className="font-mono text-xs font-bold text-amber-300 px-2 py-0.5 rounded bg-black/40">
+                <span className="font-mono text-xs font-semibold text-[#1C1917] px-2 py-0.5 rounded bg-white border border-[#E7E5E0]">
                   {Math.floor(secondsLeft / 60)}:{(secondsLeft % 60).toString().padStart(2, '0')}
                 </span>
               </div>
             )}
 
             {/* Dancer Details Form */}
-            <form onSubmit={handleConfirmBooking} className="mt-4 space-y-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <form onSubmit={handleConfirmBooking} className="mt-5 space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <input
                   type="text"
                   placeholder="Your Full Name *"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-black/30 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-[#1C1917] text-xs placeholder:text-[#A8A29E] focus:outline-none focus:border-[#1C1917]"
                 />
                 <input
                   type="tel"
@@ -288,17 +287,17 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
                   required
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-black/30 border border-white/10 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-rose-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-[#1C1917] text-xs placeholder:text-[#A8A29E] focus:outline-none focus:border-[#1C1917]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting || !selectedSpot}
-                className={`w-full py-3 rounded-xl font-medium text-xs tracking-wide transition-all cursor-pointer ${
+                className={`w-full py-3 rounded-full font-medium text-xs tracking-wide transition-all cursor-pointer ${
                   selectedSpot
-                    ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-sm'
-                    : 'bg-white/5 text-slate-500 cursor-not-allowed'
+                    ? 'bg-[#1C1917] hover:bg-[#292524] text-white shadow-xs'
+                    : 'bg-[#F5F3EF] text-[#A8A29E] cursor-not-allowed'
                 }`}
               >
                 {isSubmitting ? 'Confirming...' : `Confirm Spot ${selectedSpot ? selectedSpot.id : ''} (₹${batch.price}/mo)`}
@@ -307,41 +306,36 @@ export default function SpotWarsModal({ isOpen, batch, onClose, onBookingSuccess
           </div>
         ) : (
           /* Confirmation Screen */
-          <div className="text-center space-y-3.5 py-2">
-            <div className="w-12 h-12 mx-auto rounded-xl bg-rose-600/20 text-rose-400 flex items-center justify-center text-2xl border border-rose-500/20">
-              🎟️
-            </div>
-
-            <h3 className="font-display font-bold text-2xl text-white">
+          <div className="text-center space-y-4 py-4">
+            <h3 className="font-display font-medium text-2xl text-[#1C1917]">
               Spot Confirmed
             </h3>
-            <p className="text-xs text-slate-300">
-              Your formation spot has been secured.
+            <p className="text-xs text-[#78716C] max-w-sm mx-auto">
+              Your formation spot has been secured. See you on the studio floor!
             </p>
 
-            {/* Pass Card */}
-            <div className="p-4 rounded-xl bg-black/40 border border-white/10 text-left space-y-2 text-xs">
-              <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                <span className="font-mono text-[10px] text-slate-400">BOOKING ID</span>
-                <span className="font-mono font-bold text-amber-300">{bookingConfirmed.bookingId}</span>
+            <div className="p-4 rounded-xl bg-[#FAF9F6] border border-[#E7E5E0] text-left space-y-2 text-xs max-w-md mx-auto">
+              <div className="flex justify-between items-center border-b border-[#E7E5E0] pb-2">
+                <span className="font-mono text-[10px] text-[#A8A29E]">BOOKING ID</span>
+                <span className="font-mono font-medium text-[#1C1917]">{bookingConfirmed.bookingId}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-400">Dancer:</span>
-                <span className="text-white font-medium">{bookingConfirmed.dancerName}</span>
+                <span className="text-[#78716C]">Dancer:</span>
+                <span className="text-[#1C1917] font-medium">{bookingConfirmed.dancerName}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-400">Batch:</span>
-                <span className="text-white font-medium">{bookingConfirmed.batchTitle}</span>
+                <span className="text-[#78716C]">Batch:</span>
+                <span className="text-[#1C1917] font-medium">{bookingConfirmed.batchTitle}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-400">Spot:</span>
-                <span className="text-rose-400 font-bold">{bookingConfirmed.spotId}</span>
+                <span className="text-[#78716C]">Spot:</span>
+                <span className="text-[#9F1239] font-bold text-sm">{bookingConfirmed.spotId}</span>
               </div>
             </div>
 
             <button
               onClick={onClose}
-              className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs transition-colors cursor-pointer"
+              className="w-full py-2.5 rounded-full bg-[#1C1917] hover:bg-[#292524] text-white font-medium text-xs transition-colors cursor-pointer"
             >
               Done
             </button>
